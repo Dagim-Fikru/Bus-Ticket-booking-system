@@ -4,4 +4,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html',{'platform': 'php'})
+    return render(request, 'home.html',{'platform': 'phpjava'})
