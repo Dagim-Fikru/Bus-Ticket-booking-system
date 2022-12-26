@@ -28,10 +28,21 @@ def signup(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
 
-        user = User.objects.create_user(username=username,password=password1,email=email)
-        user.save()
-        print('user created')
-        return render(request, 'loginPage.html')
+        if password1 == password2:
+            if User.objects.filter(username=username).exists():
+                print('*username taken')
+                return render(request, 'signupPage.html')
+            elif User.objects.filter(email=email).exists():
+                print('email taken')
+                return render(request, 'signupPage.html')
+            else:
+                user = User.objects.create_user(username=username,password=password1,email=email)
+                user.save()
+                print('user created')
+            return render(request, 'loginPage.html')
         # return redirect('')
+        else:
+            print('*password not match')
+            return render(request, 'signupPage.html')
     else:
         return render(request, 'signupPage.html')
