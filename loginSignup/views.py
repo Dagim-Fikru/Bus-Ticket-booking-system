@@ -1,3 +1,5 @@
+# from pyexpat.errors import messages
+from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth  
 from django.http import HttpResponse
@@ -30,10 +32,13 @@ def signup(request):
 
         if password1 == password2:
             if User.objects.filter(username=username).exists():
-                print('*username taken')
+                messages.info(request,'*username taken try another' )
+                # print('*username taken')
                 return render(request, 'signupPage.html')
             elif User.objects.filter(email=email).exists():
-                print('email taken')
+                messages.info(request,'email already exist try with another' )
+
+                # print('email taken')
                 return render(request, 'signupPage.html')
             else:
                 user = User.objects.create_user(username=username,password=password1,email=email)
@@ -42,7 +47,8 @@ def signup(request):
             return render(request, 'loginPage.html')
         # return redirect('')
         else:
-            print('*password not match')
+            messages.info(request, '*password not match try again ')
+            # print('*password not match')
             return render(request, 'signupPage.html')
     else:
         return render(request, 'signupPage.html')

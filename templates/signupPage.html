@@ -20,19 +20,24 @@
             <div class="input-field">
               <i class="fas fa-user"></i>
                {% csrf_token %}
-              <input type="text" placeholder="Username" name="username" />
+              <input type="text" placeholder="Username" name="username" required />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" name="email" />
+              <input type="email" placeholder="Email" name="email" required />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" name="password1" />
+              <input type="password" placeholder="Password" name="password1" required />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Confirm password" name="password2" />
+              <input type="password" placeholder="Confirm password" name="password2" required />
+            </div>
+            <div>
+              {% for message in messages %}
+              <h6 class="message">{{message}}</h6>
+              {% endfor %}
             </div>
             <input type="submit" class="btn" value="Sign up" />
             <!-- <input type="submit" value="login" class="btn solid" /> -->

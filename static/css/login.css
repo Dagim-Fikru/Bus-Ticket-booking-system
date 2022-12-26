@@ -59,7 +59,9 @@ form.sign-up-form {
 form.sign-in-form {
   z-index: 2;
 }
-
+.message{
+  color: red;
+}
 .title {
   font-size: 2.2rem;
   color: #444;
