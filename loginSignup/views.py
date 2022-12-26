@@ -29,8 +29,9 @@ def signup(request):
         password2 = request.POST['password2']
 
         user = User.objects.create_user(username=username,password=password1,email=email)
-        user.save();
+        user.save()
         print('user created')
-        return redirect('')
+        return render(request, 'loginPage.html')
+        # return redirect('')
     else:
         return render(request, 'signupPage.html')
