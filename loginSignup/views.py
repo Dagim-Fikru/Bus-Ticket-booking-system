@@ -12,7 +12,23 @@ def welcomePage(request):
     return render(request, 'welcome.html')
 
 def login(request):
-    return render(request,'loginPage.html')
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return render(request, 'welcome.html')
+        else:
+            messages.info(request, 'incorrect username or password')
+            return render(request,'loginPage.html')
+
+
+        
+    else:
+        return render(request,'loginPage.html')
     
 def signup(request):
     # form = UserCreationForm(request.POST)
@@ -44,7 +60,7 @@ def signup(request):
                 user = User.objects.create_user(username=username,password=password1,email=email)
                 user.save()
                 print('user created')
-            return render(request, 'loginPage.html')
+                return render(request, 'loginPage.html')
         # return redirect('')
         else:
             messages.info(request, '*password not match try again ')

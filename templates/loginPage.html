@@ -15,15 +15,21 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="{% url 'login' %}" method="post" class="sign-in-form">
+          <form action="{% url 'login' %}" method="POST" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+               {% csrf_token %}
+              <input type="text" placeholder="Username" name="username" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name="password" />
+            </div>
+            <div>
+              {% for message in messages %}
+              <h6 style="color: red;">{{message}}</h6>
+              {% endfor %}
             </div>
             <input type="submit" value="login" class="btn solid" />
             </div>
