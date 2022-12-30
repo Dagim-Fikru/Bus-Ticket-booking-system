@@ -59,7 +59,9 @@ form.sign-up-form {
 form.sign-in-form {
   z-index: 2;
 }
-
+.message{
+  color: red;
+}
 .title {
   font-size: 2.2rem;
   color: #444;
@@ -99,7 +101,7 @@ form.sign-in-form {
 
 .input-field input::placeholder {
   color: #aaa;
-  font-weight: 500;
+  font-weight: 250;
 }
 
 .social-text {
@@ -148,7 +150,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #4d84e2;
+  background-color: #000000;
 }
 .panels-container {
   position: absolute;

@@ -68,3 +68,7 @@ def signup(request):
             return render(request, 'signupPage.html')
     else:
         return render(request, 'signupPage.html')
+        
+def logout(request):
+    auth.logout(request)
+    return render(request, 'loginPage.html')
