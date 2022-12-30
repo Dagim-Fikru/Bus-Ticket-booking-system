@@ -20,7 +20,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return render(request, 'welcome.html')
+            return render(request, 'ticket_booking_page.html')
         else:
             messages.info(request, 'incorrect username or password')
             return render(request,'loginPage.html')
