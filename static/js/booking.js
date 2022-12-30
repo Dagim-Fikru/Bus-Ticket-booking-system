@@ -2,6 +2,10 @@ const select = document.querySelectorAll('.selectBtn');
 const option = document.querySelectorAll('.option');
 let index = 1;
 
+for (i=1;i<=100;i++){
+    select += '<option val=' + i + '>' + i + '</option>';
+}
+$('#some_selector').html(select);
 select.forEach(a => {
 	a.addEventListener('click', b => {
 		const next = b.target.nextElementSibling;
@@ -9,6 +13,7 @@ select.forEach(a => {
 		next.style.zIndex = index++;
 	})
 })
+
 option.forEach(a => {
 	a.addEventListener('click', b => { 
 		b.target.parentElement.classList.remove('toggle');
