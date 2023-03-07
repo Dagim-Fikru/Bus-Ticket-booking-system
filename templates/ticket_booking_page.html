@@ -5,73 +5,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Booking page</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static 'css/booking.css' %}">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="{% static 'css/booking.css' %}" />
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 </head>
 <body>
 <div class="navbar">
 	<img src="{% static 'backgrounds/logo.png' %} " height=60 width=140 class="companylogo"></div>
+	
 </div>
 <div class="container">
 <h3 class="getquotetext">Hello, {{user.username}} Book your ticket here</h3>
+	 <header>
+        <h1>Ticket Booking</h1>
+    </header>
+    <main>
+		{% csrf_token %} 
+        <h2>Book Your Tickets</h2>
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="departure">Departure Location:</label>
+            <input type="text" id="departure" name="departure" required>
+
+            <label for="arrival">Arrival Location:</label>
+            <input type="text" id="arrival" name="arrival" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+    </main>
+    <footer>
+        <button type="button">Logout</button>
+    </footer>
 	
-	<div class="blocks">
-	<!-- partial:index.partial.html -->
-		<div class="left">
-			<p>From</p>
-			<div class="select">
-				<div class="selectBtn" data-type="firstOption"><i class="fas fa-map-marker-alt"></i></div>
-				<div class="selectDropdown">
-                    <div class="option" data-type="firstOption"><i class="fas fa-map-marker-alt"></i>Addis Ababa</div>
-					<div class="option" data-type="secondOption"><i class="fas fa-map-marker-alt"></i>Negelle Borana</div>
-					<div class="option" data-type="thirdOption"><i class="fas fa-map-marker-alt"></i>Gondar</div>
-					<div class="option" data-type="fourthOption"><i class="fas fa-map-marker-alt"></i>Bahr Dar</div>
-				</div>
-			</div>
-			<p>To</p>
-			<div class="select">
-				<div class="selectBtn" data-type="firstOption">Arba Minch<i class="fas fa-map-marker-alt"></i></div>
-				<div class="selectDropdown">
-					<div class="option" data-type="firstOption"><i class="fas fa-map-marker-alt"></i>Addis Ababa</div>
-					<div class="option" data-type="secondOption"><i class="fas fa-map-marker-alt"></i>Negelle Borana</div>
-					<div class="option" data-type="thirdOption"><i class="fas fa-map-marker-alt"></i>Gondar</div>
-					<div class="option" data-type="fourthOption"><i class="fas fa-map-marker-alt"></i>Bahr Dar</div>
-				</div>
-			</div>
-			<p>Departure Date</p>
-			<div class="date-input-container">
-				<i class="fas fa-calendar-alt date-icon"></i>
-                <!-- {% csrf_token %} -->
-				<input class="date-input-field " type="date" placeholder="select date">
-			</div>
-			<p>Seat Number</p>
-			<div class="select">
-                <div class="option" >
-                    <select id='some_selector'></select>
-                </div>
-                ​
-				<!-- <div class="selectBtn" data-type="firstOption">1 Adult, 2 Students</div>
-				<div class="selectDropdown">
-					<div class="option" data-type="firstOption">First option</div>
-					<div class="option" data-type="secondOption">Second option</div>
-					<div class="option" data-type="thirdOption">Third option</div>
-				</div> -->
-			</div>
-		</div>
-		<!--  -->
-	</div>
-	<div class="buttons">
-       <a href="logout"><input type="submit" class="btn" value="logout"></a> 
-        <input type="submit" class="btn" value="Book ticket">
+       <!-- <a href="logout"><input type="submit" class="btn" value="logout"></a> 
+        <input type="submit" class="btn" value="Book ticket"> -->
 	</div>
 </div>
 <!-- partial -->
-  <script  src="{% static 'js/booking.js' %}"></script>
+  <!-- <script  src="{% static 'js/booking.js' %}"></script> -->
 
 </body>
 </html>
