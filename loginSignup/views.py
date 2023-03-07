@@ -52,7 +52,7 @@ def signup(request):
                 # print('*username taken')
                 return render(request, 'signupPage.html')
             elif User.objects.filter(email=email).exists():
-                messages.info(request,'email already exist try with another' )
+                messages.info(request,'*email already exist try with another' )
 
                 # print('email taken')
                 return render(request, 'signupPage.html')
